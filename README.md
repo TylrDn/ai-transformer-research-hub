@@ -77,6 +77,140 @@ graph LR
 ```
 
 See [docs/roadmap.md](docs/roadmap.md) for the full Kanban board.
+See [REFERENCES.md](REFERENCES.md) for the centralised arXiv citation registry.
+
+---
+
+## 🔬 Sister Repository Details
+
+<details>
+<summary><strong>📦 ai-wiki-dataset-preprocessor</strong> — Data Layer</summary>
+
+**Purpose:** Process raw Wikipedia XML dumps into clean, model-ready JSONL shards.
+
+**Key features:**
+- BZ2 dump extraction via WikiExtractor
+- MinHash deduplication (LSH threshold configurable)
+- Configurable shard size and token-count filtering
+- HuggingFace Datasets export and Hub push
+
+**Outputs:** `*.jsonl` shards · vocabulary files · dataset statistics
+
+**Quick start:**
+
+```bash
+python preprocess.py --input dump.xml.bz2 --output data/
+```
+
+**TODO (Phase 3):** Full pipeline notebook — `notebooks/01_wiki_preprocessing.ipynb`
+
+</details>
+
+<details>
+<summary><strong>⚡ ai-dist-training-scaler</strong> — Training Layer</summary>
+
+**Purpose:** Orchestrate multi-GPU/multi-node distributed Transformer training.
+
+**Key features:**
+- HuggingFace Accelerate + DeepSpeed ZeRO stages 1–3
+- Shared ZeRO-3 config: `configs/deepspeed_zero3.json`
+- Mixed precision (bf16/fp16), gradient checkpointing
+- Consumes wiki JSONL from `ai-wiki-dataset-preprocessor`
+
+**Outputs:** model checkpoints · training logs · TensorBoard/wandb metrics
+
+**Quick start:**
+
+```bash
+accelerate launch train.py --config config.yaml
+```
+
+**TODO (Phase 3):** ZeRO-3 training notebook — `notebooks/05_deepspeed_zero3_training.ipynb`
+
+</details>
+
+<details>
+<summary><strong>🛡️ ai-fault-tolerance-design</strong> — Training Layer</summary>
+
+**Purpose:** Fault tolerance infrastructure and Monte Carlo failure simulator.
+
+**Key features:**
+- Periodic checkpointing with automatic resume
+- Monte Carlo job survival probability estimator
+- Chaos engineering scenarios: node failure, gradient corruption, slow nodes
+
+**Integrates with:** `ai-dist-training-scaler` as a resilience wrapper
+
+**TODO (Phase 3):** Chaos engineering notebook — `notebooks/06_chaos_fault_injection.ipynb`
+
+</details>
+
+<details>
+<summary><strong>🔬 ai-attention-throughput-optimizer</strong> — Analysis Layer</summary>
+
+**Purpose:** Profile and benchmark attention mechanism implementations.
+
+**Key features:**
+- Vanilla softmax, FlashAttention-2/3, linear, sparse attention
+- Throughput (tokens/sec), memory footprint, latency across sequence lengths
+- CSV outputs for downstream programmatic consumption
+
+**Outputs:** benchmark CSVs · profiling reports · optimized attention modules
+
+**Quick start:**
+
+```bash
+python benchmark.py --model flash-attention
+```
+
+**TODO (Phase 3):** FlashAttention-3 benchmark notebook — `notebooks/02_flashattn3_benchmark.ipynb`
+
+</details>
+
+<details>
+<summary><strong>📊 ai-transformer-efficiency-comparison</strong> — Analysis Layer</summary>
+
+**Purpose:** Systematically compare Transformer variants by compute efficiency.
+
+**Key features:**
+- FLOPs, wall-clock latency, peak GPU memory comparison
+- GPT-2 vs RWKV Pareto efficiency plots
+- Publication-ready Markdown reports and matplotlib/plotly figures
+
+**Outputs:** comparison tables · Pareto plots · Markdown reports
+
+**Quick start:**
+
+```bash
+python compare.py --variants vanilla,linear,flash
+```
+
+**TODO (Phase 3):** Pareto analysis notebook — `notebooks/03_gpt2_rwkv_pareto.ipynb`
+**TODO (Phase 5):** SOTA comparison vs LLaMA-3-8B, Mistral-7B
+
+</details>
+
+<details>
+<summary><strong>🖼️ ai-attention-token-viz</strong> — Visualization Layer</summary>
+
+**Purpose:** Interactive web UI for token-to-token attention heatmaps.
+
+**Key features:**
+- Streamlit + Plotly interactive attention maps
+- Any HuggingFace-compatible language model supported
+- Head-level and layer-level navigation
+- Exports interactive HTML and PNG snapshots
+
+**Quick start:**
+
+```bash
+python viz.py --model bert-base-uncased --text "Hello world"
+```
+
+**TODO (Phase 3):** Attention viz notebook + app — `notebooks/04_attention_viz_streamlit.ipynb`
+**TODO (Phase 5):** Deploy to HuggingFace Spaces
+
+</details>
 
 ---
 
@@ -152,11 +286,12 @@ See [docs/roadmap.md](docs/roadmap.md) for the full Kanban board with all phases
 ### 🚧 Phase 2 — Repo Hardening (Planned)
 
 - [ ] `.github/copilot-instructions.md` in each sister repo (PyTorch 2.3+, IBM WatsonX, wandb, arXiv)
-- [ ] pytest suites + CI workflows per repo
+- [ ] pytest suites + CI workflows per repo (template: `templates/repo-ci.yml`)
 - [ ] Cross-link datasets/models (wiki JSONL → trainers)
 
-### 🔮 Phase 3 — Notebook Pipelines (Planned)
+### 🔮 Phase 3 — Notebook Pipelines (Stubs Ready)
 
+- [x] Hub-level notebook stubs in `notebooks/` (all 6 — see below)
 - [ ] Wiki: full dump → JSONL pipeline, HuggingFace Dataset export
 - [ ] Attn: FlashAttention-3 benchmark 1k–64k seq
 - [ ] Compare: GPT-2 vs RWKV on wiki data, Pareto plots
@@ -164,11 +299,95 @@ See [docs/roadmap.md](docs/roadmap.md) for the full Kanban board with all phases
 - [ ] Scale: DeepSpeed ZeRO-3 train on wiki, fault injection
 - [ ] Fault: chaos tests for scaler
 
-### 🔮 Phase 4 — Integration (Planned)
+### 🔮 Phase 4 — Integration (Framework Ready)
 
-- [ ] Multi-root VS Code workspace script
-- [ ] End-to-end pipeline: wiki → train → viz → optimize → scale
-- [ ] YouTube demo templates in hub
+- [x] Multi-root VS Code workspace (`transformer-research-hub.code-workspace`)
+- [x] End-to-end pipeline script (`scripts/run-e2e-pipeline.sh`)
+- [x] Cross-repo artefact sync (`scripts/sync_repos.sh`)
+- [x] YouTube demo templates (`templates/youtube-demo-outline.md`)
+- [x] Streamlit Cloud configs (`.streamlit/config.toml`)
+- [x] Docker + Compose deployment (`Dockerfile`, `docker-compose.yml`)
+
+### 🔮 Phase 5 — AI Industry Benchmarking (Planned)
+
+- [ ] SOTA comparison: trained models vs LLaMA-3-8B, Mistral-7B, GPT-2-XL
+- [ ] PapersWithCode leaderboard integration
+- [ ] HuggingFace Spaces deployment for attention viz
+- [ ] Kubernetes manifests for multi-GPU training jobs
+- [ ] Long-context benchmark at 32k–128k tokens
+
+---
+
+## 🛠️ Developer Setup
+
+### 1. Open the Multi-Root Workspace
+
+Clone the hub, then open `transformer-research-hub.code-workspace` in VS Code to get
+all seven repos, shared interpreter, and tasks in one window:
+
+```bash
+git clone https://github.com/TylrDn/ai-transformer-research-hub
+code ai-transformer-research-hub/transformer-research-hub.code-workspace
+```
+
+### 2. Clone All Sister Repos
+
+```bash
+bash ai-transformer-research-hub/scripts/clone-all.sh ./research
+```
+
+### 3. Run the End-to-End Pipeline
+
+```bash
+# Dry-run to preview steps
+bash scripts/run-e2e-pipeline.sh --dry-run
+
+# Full run (single GPU)
+bash scripts/run-e2e-pipeline.sh
+
+# Distributed (4 GPUs)
+bash scripts/run-e2e-pipeline.sh --distributed --num-processes 4
+
+# Skip expensive steps during iteration
+bash scripts/run-e2e-pipeline.sh --skip-preprocess --skip-train
+```
+
+### 4. Sync Artefacts from Sister Repos
+
+```bash
+# Sync everything (datasets, checkpoints, results)
+bash scripts/sync_repos.sh
+
+# Sync only datasets
+bash scripts/sync_repos.sh --data-only
+
+# Preview what would be copied
+bash scripts/sync_repos.sh --dry-run
+```
+
+### 5. Run the Streamlit Demo
+
+```bash
+# Local (requires streamlit)
+pip install streamlit plotly transformers
+streamlit run notebooks/04_attention_viz_streamlit.ipynb
+
+# Docker
+docker compose up streamlit
+```
+
+### 6. Notebook Pipelines
+
+Open any notebook in `notebooks/` to explore individual pipeline stages:
+
+| Notebook | Topic | GPU? |
+|----------|-------|------|
+| `01_wiki_preprocessing.ipynb` | Wikipedia → JSONL | CPU ✓ |
+| `02_flashattn3_benchmark.ipynb` | FlashAttention-3 benchmark | GPU recommended |
+| `03_gpt2_rwkv_pareto.ipynb` | GPT-2 vs RWKV Pareto | CPU (slow) |
+| `04_attention_viz_streamlit.ipynb` | Attention heatmaps | CPU ✓ |
+| `05_deepspeed_zero3_training.ipynb` | ZeRO-3 distributed training | GPU recommended |
+| `06_chaos_fault_injection.ipynb` | Fault injection simulation | CPU ✓ |
 
 ---
 
