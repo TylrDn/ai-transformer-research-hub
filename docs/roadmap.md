@@ -29,11 +29,6 @@ graph LR
 
 | ID | Task | Repo | Phase |
 |----|------|------|-------|
-| B-01 | FlashAttention-3 benchmark (1k–64k seq) | ai-attention-throughput-optimizer | 3 |
-| B-02 | GPT-2 vs RWKV on wiki data + Pareto plots | ai-transformer-efficiency-comparison | 3 |
-| B-03 | Streamlit attention heatmap app + HF integration | ai-attention-token-viz | 3 |
-| B-04 | DeepSpeed ZeRO-3 train on wiki data | ai-dist-training-scaler | 3 |
-| B-05 | Chaos/fault-injection tests for scaler | ai-fault-tolerance-design | 3 |
 | B-06 | LLaMA-3 / GPT-4 / RWKV benchmark comparison table | ai-transformer-efficiency-comparison | 5 |
 | B-07 | PapersWithCode leaderboard integration | ai-transformer-research-hub | 5 |
 | B-08 | Streamlit Cloud / HuggingFace Spaces deployment | ai-attention-token-viz | 5 |
@@ -44,14 +39,7 @@ graph LR
 
 ### In Progress
 
-| ID | Task | Repo | Phase |
-|----|------|------|-------|
-| P-01 | Notebook 01 — Wikipedia dump → JSONL pipeline | ai-transformer-research-hub | 3 |
-| P-02 | Notebook 02 — FlashAttention-2/3 benchmark | ai-transformer-research-hub | 3 |
-| P-03 | Notebook 03 — GPT-2 vs RWKV Pareto analysis | ai-transformer-research-hub | 3 |
-| P-04 | Notebook 04 — Attention viz + Streamlit app | ai-transformer-research-hub | 3 |
-| P-05 | Notebook 05 — DeepSpeed ZeRO-3 training loop | ai-transformer-research-hub | 3 |
-| P-06 | Notebook 06 — Chaos engineering simulator | ai-transformer-research-hub | 3 |
+_No items currently in progress._
 
 ---
 
@@ -77,6 +65,13 @@ graph LR
 | D-16 | Cross-repo artefact sync (`scripts/sync_repos.sh`) | ai-transformer-research-hub | Phase 4 |
 | D-17 | Streamlit demo configs (`.streamlit/config.toml`) | ai-transformer-research-hub | Phase 4 |
 | D-18 | Docker + Compose deployment (`Dockerfile`, `docker-compose.yml`) | ai-transformer-research-hub | Phase 4 |
+| D-19 | Notebook 01 — Wikipedia dump → JSONL pipeline | ai-transformer-research-hub | Phase 3 |
+| D-20 | Notebook 02 — FlashAttention-2/3 benchmark | ai-transformer-research-hub | Phase 3 |
+| D-21 | Notebook 03 — GPT-2 vs RWKV Pareto analysis | ai-transformer-research-hub | Phase 3 |
+| D-22 | Notebook 04 — Attention viz + Streamlit app | ai-transformer-research-hub | Phase 3 |
+| D-23 | Notebook 05 — DeepSpeed ZeRO-3 training loop | ai-transformer-research-hub | Phase 3 |
+| D-24 | Notebook 06 — Chaos engineering simulator | ai-transformer-research-hub | Phase 3 |
+| D-25 | Per-repo Copilot instructions (`docs/instructions/`) | ai-transformer-research-hub | Phase 2 |
 
 ---
 
@@ -91,26 +86,27 @@ graph LR
 - GitHub Pages deploy from README
 - `docs/roadmap.md` Kanban board (this document)
 
-### Phase 2 — Repo Hardening (Planned)
+### Phase 2 — Repo Hardening ✅ (Instructions Complete)
 
 Sequence: wiki → attn-optimizer → efficiency-comparison → token-viz → dist-scaler → fault-tolerance
 
 For each repo:
 
-- `.github/copilot-instructions.md` with PyTorch 2.3+, IBM WatsonX compat, GPU-first, wandb logging, arXiv citations
-- pytest suite + CI workflow update
+- `.github/copilot-instructions.md` with PyTorch 2.3+, IBM WatsonX compat, GPU-first, wandb logging,
+  arXiv citations — stored in [`docs/instructions/<repo>/copilot-instructions.md`](../docs/instructions/)
+- pytest suite + CI workflow update (template: `templates/repo-ci.yml`)
 - Cross-link datasets/models (e.g., wiki JSONL → trainers)
 
-### Phase 3 — Notebook Pipelines 🔄 (In Progress)
+### Phase 3 — Notebook Pipelines ✅ (Complete)
 
 | Notebook | Repo | Deliverable | Status |
 |----------|------|-------------|--------|
-| 01_wiki_preprocessing.ipynb | ai-wiki-dataset-preprocessor | Full dump → JSONL pipeline; MinHash dedup; HuggingFace export | 🔄 Implemented |
-| 02_flashattn3_benchmark.ipynb | ai-attention-throughput-optimizer | FlashAttention-2/3 benchmark (1k–64k seq lengths); Plotly heatmaps | 🔄 Implemented |
-| 03_gpt2_rwkv_pareto.ipynb | ai-transformer-efficiency-comparison | GPT-2 vs RWKV perplexity × latency Pareto analysis | 🔄 Implemented |
-| 04_attention_viz_streamlit.ipynb | ai-attention-token-viz | BERT attention extractor + Streamlit heatmap app generator | 🔄 Implemented |
-| 05_deepspeed_zero3_training.ipynb | ai-dist-training-scaler | ZeRO-3 training loop with fault injection + checkpoint recovery | 🔄 Implemented |
-| 06_chaos_fault_injection.ipynb | ai-fault-tolerance-design | DistributedTrainingSimulator + Monte Carlo reliability curve | 🔄 Implemented |
+| 01_wiki_preprocessing.ipynb | ai-wiki-dataset-preprocessor | Full dump → JSONL pipeline; MinHash dedup; HuggingFace export | ✅ Complete |
+| 02_flashattn3_benchmark.ipynb | ai-attention-throughput-optimizer | FlashAttention-2/3 benchmark (1k–64k seq lengths); Plotly heatmaps | ✅ Complete |
+| 03_gpt2_rwkv_pareto.ipynb | ai-transformer-efficiency-comparison | GPT-2 vs RWKV perplexity × latency Pareto analysis | ✅ Complete |
+| 04_attention_viz_streamlit.ipynb | ai-attention-token-viz | BERT attention extractor + Streamlit heatmap app generator | ✅ Complete |
+| 05_deepspeed_zero3_training.ipynb | ai-dist-training-scaler | ZeRO-3 training loop with fault injection + checkpoint recovery | ✅ Complete |
+| 06_chaos_fault_injection.ipynb | ai-fault-tolerance-design | DistributedTrainingSimulator + Monte Carlo reliability curve | ✅ Complete |
 
 ### Phase 4 — Integration ✅ (Framework Complete)
 
@@ -142,7 +138,8 @@ Align the ecosystem with state-of-the-art models and public leaderboards.
 |-----------|-------------|--------|
 | Phase 1 complete | 2026-03-29 | ✅ Complete |
 | Phase 4 framework complete | 2026-03-29 | ✅ Complete |
-| Phase 2 complete | 2026-05-15 | ⏳ Planned |
-| Phase 3 complete | 2026-06-30 | ⏳ Planned |
+| Phase 3 complete | 2026-03-29 | ✅ Complete |
+| Phase 2 instructions complete | 2026-03-29 | ✅ Complete |
+| Phase 2 full hardening (pytest + CI per repo) | 2026-05-15 | ⏳ Planned |
 | Phase 4 full integration | 2026-07-31 | ⏳ Planned |
 | Phase 5 complete | 2026-09-30 | ⏳ Planned |
