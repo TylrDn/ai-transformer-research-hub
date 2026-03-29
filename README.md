@@ -283,21 +283,21 @@ See [docs/roadmap.md](docs/roadmap.md) for the full Kanban board with all phases
 - [x] Fault tolerance design & simulation (`ai-fault-tolerance-design`)
 - [x] Attention visualization tooling (`ai-attention-token-viz`)
 
-### 🚧 Phase 2 — Repo Hardening (Planned)
+### 🚧 Phase 2 — Repo Hardening (Instructions Complete)
 
-- [ ] `.github/copilot-instructions.md` in each sister repo (PyTorch 2.3+, IBM WatsonX, wandb, arXiv)
+- [x] Per-repo Copilot instructions in `docs/instructions/<repo>/copilot-instructions.md` (all 6 sister repos)
 - [ ] pytest suites + CI workflows per repo (template: `templates/repo-ci.yml`)
 - [ ] Cross-link datasets/models (wiki JSONL → trainers)
 
-### 🔮 Phase 3 — Notebook Pipelines (Stubs Ready)
+### ✅ Phase 3 — Notebook Pipelines (Complete)
 
-- [x] Hub-level notebook stubs in `notebooks/` (all 6 — see below)
-- [ ] Wiki: full dump → JSONL pipeline, HuggingFace Dataset export
-- [ ] Attn: FlashAttention-3 benchmark 1k–64k seq
-- [ ] Compare: GPT-2 vs RWKV on wiki data, Pareto plots
-- [ ] Viz: Streamlit attention heatmap app, HF integration
-- [ ] Scale: DeepSpeed ZeRO-3 train on wiki, fault injection
-- [ ] Fault: chaos tests for scaler
+- [x] Hub-level notebooks in `notebooks/` (all 6 fully implemented)
+- [x] Wiki: full dump → JSONL pipeline, MinHash dedup, HuggingFace Dataset export
+- [x] Attn: FlashAttention-2/3 benchmark 1k–64k seq, Plotly heatmaps
+- [x] Compare: GPT-2 vs RWKV on wiki data, Pareto plots
+- [x] Viz: BERT attention extractor + Streamlit heatmap app generator
+- [x] Scale: DeepSpeed ZeRO-3 training loop + fault injection + checkpoint recovery
+- [x] Fault: DistributedTrainingSimulator + Monte Carlo reliability curve
 
 ### 🔮 Phase 4 — Integration (Framework Ready)
 

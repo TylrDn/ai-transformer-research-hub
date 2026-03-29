@@ -354,5 +354,99 @@ class TestDocs:
         content = read("docs/roadmap.md")
         assert "Phase 5" in content
 
+    def test_roadmap_phase3_complete(self) -> None:
+        content = read("docs/roadmap.md")
+        assert "Phase 3 — Notebook Pipelines ✅" in content
+
+    def test_roadmap_no_phase3_in_progress(self) -> None:
+        content = read("docs/roadmap.md")
+        # Phase 3 notebook items should not be in the In Progress column
+        assert "P-01" not in content
+        assert "P-06" not in content
+
     def test_architecture_doc_exists(self) -> None:
         assert (ROOT / "docs" / "architecture.md").exists()
+
+
+# ---------------------------------------------------------------------------
+# Per-repo development instructions
+# ---------------------------------------------------------------------------
+
+SISTER_REPOS = [
+    "ai-wiki-dataset-preprocessor",
+    "ai-attention-throughput-optimizer",
+    "ai-transformer-efficiency-comparison",
+    "ai-attention-token-viz",
+    "ai-dist-training-scaler",
+    "ai-fault-tolerance-design",
+]
+
+
+class TestRepoInstructions:
+    def test_instructions_dir_exists(self) -> None:
+        assert (ROOT / "docs" / "instructions").is_dir()
+
+    def test_all_repo_instruction_files_exist(self) -> None:
+        for repo in SISTER_REPOS:
+            path = ROOT / "docs" / "instructions" / repo / "copilot-instructions.md"
+            assert path.exists(), f"Missing instructions for {repo}"
+
+    def test_all_instructions_have_pytorch_version(self) -> None:
+        for repo in SISTER_REPOS:
+            content = read(f"docs/instructions/{repo}/copilot-instructions.md")
+            assert "PyTorch" in content and "2.3" in content, \
+                f"Missing PyTorch 2.3 requirement in {repo} instructions"
+
+    def test_all_instructions_have_wandb(self) -> None:
+        for repo in SISTER_REPOS:
+            content = read(f"docs/instructions/{repo}/copilot-instructions.md")
+            assert "wandb" in content, f"Missing wandb in {repo} instructions"
+
+    def test_all_instructions_have_watsonx(self) -> None:
+        for repo in SISTER_REPOS:
+            content = read(f"docs/instructions/{repo}/copilot-instructions.md")
+            assert "WatsonX" in content or "watsonx" in content.lower(), \
+                f"Missing WatsonX in {repo} instructions"
+
+    def test_all_instructions_have_arxiv_citation_example(self) -> None:
+        for repo in SISTER_REPOS:
+            content = read(f"docs/instructions/{repo}/copilot-instructions.md")
+            assert "arxiv.org" in content, \
+                f"Missing arXiv citation example in {repo} instructions"
+
+    def test_all_instructions_have_repo_specific_notes(self) -> None:
+        for repo in SISTER_REPOS:
+            content = read(f"docs/instructions/{repo}/copilot-instructions.md")
+            assert "Repo-Specific Notes" in content, \
+                f"Missing Repo-Specific Notes section in {repo} instructions"
+
+    def test_all_instructions_have_cross_repo_contracts(self) -> None:
+        for repo in SISTER_REPOS:
+            content = read(f"docs/instructions/{repo}/copilot-instructions.md")
+            assert "Cross-Repo Contracts" in content, \
+                f"Missing Cross-Repo Contracts section in {repo} instructions"
+
+    def test_wiki_instructions_has_pipeline_functions(self) -> None:
+        content = read("docs/instructions/ai-wiki-dataset-preprocessor/copilot-instructions.md")
+        for fn in ("extract_articles", "minhash_dedup", "write_jsonl_shards"):
+            assert fn in content, f"Missing function {fn} in wiki instructions"
+
+    def test_attn_optimizer_instructions_has_benchmark_function(self) -> None:
+        content = read("docs/instructions/ai-attention-throughput-optimizer/copilot-instructions.md")
+        assert "benchmark_attention" in content
+
+    def test_efficiency_instructions_has_pareto_function(self) -> None:
+        content = read("docs/instructions/ai-transformer-efficiency-comparison/copilot-instructions.md")
+        assert "is_pareto_optimal" in content
+
+    def test_token_viz_instructions_has_streamlit(self) -> None:
+        content = read("docs/instructions/ai-attention-token-viz/copilot-instructions.md")
+        assert "streamlit" in content.lower()
+
+    def test_dist_scaler_instructions_has_zero3(self) -> None:
+        content = read("docs/instructions/ai-dist-training-scaler/copilot-instructions.md")
+        assert "ZeRO-3" in content or "zero3" in content.lower()
+
+    def test_fault_tolerance_instructions_has_simulator(self) -> None:
+        content = read("docs/instructions/ai-fault-tolerance-design/copilot-instructions.md")
+        assert "DistributedTrainingSimulator" in content
