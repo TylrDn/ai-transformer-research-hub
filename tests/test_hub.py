@@ -367,6 +367,23 @@ class TestDocs:
     def test_architecture_doc_exists(self) -> None:
         assert (ROOT / "docs" / "architecture.md").exists()
 
+    def test_readme_no_phase3_todo_stubs(self) -> None:
+        content = read("README.md")
+        assert "TODO (Phase 3)" not in content, \
+            "README still contains Phase 3 TODO stubs -- Phase 3 is complete"
+
+    def test_readme_has_notebook_completion_links(self) -> None:
+        content = read("README.md")
+        for nb in (
+            "01_wiki_preprocessing.ipynb",
+            "02_flashattn3_benchmark.ipynb",
+            "03_gpt2_rwkv_pareto.ipynb",
+            "04_attention_viz_streamlit.ipynb",
+            "05_deepspeed_zero3_training.ipynb",
+            "06_chaos_fault_injection.ipynb",
+        ):
+            assert nb in content, f"README missing link to completed notebook: {nb}"
+
 
 # ---------------------------------------------------------------------------
 # Per-repo development instructions
