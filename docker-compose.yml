@@ -1,0 +1,66 @@
+version: "3.9"
+
+# Docker Compose file for local development and CI
+# Usage:
+#   docker compose up streamlit        # run Streamlit demo
+#   docker compose up pipeline         # run E2E pipeline
+#   docker compose up --build          # rebuild images
+
+services:
+  # ---------------------------------------------------------------------------
+  # Streamlit attention viz demo
+  # ---------------------------------------------------------------------------
+  streamlit:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: tylrdn/transformer-research-hub:latest
+    ports:
+      - "8501:8501"
+    environment:
+      - WANDB_DISABLED=true
+    volumes:
+      # Mount sync/ for pre-computed artefacts (populated by sync_repos.sh)
+      - ./sync:/workspace/sync:ro
+      # Mount .streamlit/secrets.toml if present
+      - ./.streamlit:/workspace/.streamlit:ro
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8501/_stcore/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  # ---------------------------------------------------------------------------
+  # End-to-end pipeline (one-shot)
+  # ---------------------------------------------------------------------------
+  pipeline:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: tylrdn/transformer-research-hub:latest
+    command: ["bash", "scripts/run-e2e-pipeline.sh", "--skip-train", "--dry-run"]
+    environment:
+      - WANDB_DISABLED=true
+    volumes:
+      - ./sync:/workspace/sync
+
+  # ---------------------------------------------------------------------------
+  # Jupyter Lab (for notebook development)
+  # ---------------------------------------------------------------------------
+  jupyter:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: tylrdn/transformer-research-hub:latest
+    command: >
+      bash -c "pip install -q jupyterlab &&
+               jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root
+               --NotebookApp.token=''"
+    ports:
+      - "8888:8888"
+    environment:
+      - WANDB_DISABLED=true
+    volumes:
+      - ./notebooks:/workspace/notebooks
+      - ./sync:/workspace/sync

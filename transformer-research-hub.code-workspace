@@ -1,0 +1,144 @@
+{
+  "folders": [
+    {
+      "name": "🤖 hub (ai-transformer-research-hub)",
+      "path": "."
+    },
+    {
+      "name": "📦 wiki-preprocessor (ai-wiki-dataset-preprocessor)",
+      "path": "../ai-wiki-dataset-preprocessor"
+    },
+    {
+      "name": "⚡ dist-training-scaler (ai-dist-training-scaler)",
+      "path": "../ai-dist-training-scaler"
+    },
+    {
+      "name": "🛡️ fault-tolerance-design (ai-fault-tolerance-design)",
+      "path": "../ai-fault-tolerance-design"
+    },
+    {
+      "name": "🔬 attention-throughput-optimizer (ai-attention-throughput-optimizer)",
+      "path": "../ai-attention-throughput-optimizer"
+    },
+    {
+      "name": "📊 transformer-efficiency-comparison (ai-transformer-efficiency-comparison)",
+      "path": "../ai-transformer-efficiency-comparison"
+    },
+    {
+      "name": "🖼️ attention-token-viz (ai-attention-token-viz)",
+      "path": "../ai-attention-token-viz"
+    }
+  ],
+  "settings": {
+    "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+    "python.analysis.typeCheckingMode": "basic",
+    "editor.formatOnSave": true,
+    "editor.rulers": [100],
+    "editor.tabSize": 4,
+    "[python]": {
+      "editor.defaultFormatter": "ms-python.black-formatter",
+      "editor.formatOnSave": true
+    },
+    "black-formatter.args": ["--line-length", "100"],
+    "ruff.organizeImports": true,
+    "jupyter.notebookFileRoot": "${workspaceFolder}",
+    "files.exclude": {
+      "**/__pycache__": true,
+      "**/.pytest_cache": true,
+      "**/*.pyc": true
+    }
+  },
+  "extensions": {
+    "recommendations": [
+      "ms-python.python",
+      "ms-python.black-formatter",
+      "charliermarsh.ruff",
+      "ms-toolsai.jupyter",
+      "ms-toolsai.vscode-jupyter-cell-tags",
+      "GitHub.copilot",
+      "GitHub.copilot-chat",
+      "yzhang.markdown-all-in-one",
+      "bierner.markdown-mermaid"
+    ]
+  },
+  "launch": {
+    "configurations": [
+      {
+        "name": "▶️ E2E Pipeline (dry-run)",
+        "type": "shellscript",
+        "request": "launch",
+        "script": "${workspaceFolder:🤖 hub (ai-transformer-research-hub)}/scripts/run-e2e-pipeline.sh",
+        "args": ["--dry-run"]
+      },
+      {
+        "name": "▶️ Streamlit Attention Viz",
+        "type": "python",
+        "request": "launch",
+        "module": "streamlit",
+        "args": [
+          "run",
+          "${workspaceFolder:🖼️ attention-token-viz (ai-attention-token-viz)}/streamlit_app.py",
+          "--server.port",
+          "8501"
+        ]
+      },
+      {
+        "name": "▶️ Accelerate Training (single GPU)",
+        "type": "python",
+        "request": "launch",
+        "module": "accelerate.commands.launch",
+        "args": [
+          "--num_processes=1",
+          "${workspaceFolder:⚡ dist-training-scaler (ai-dist-training-scaler)}/train.py",
+          "--config",
+          "config.yaml"
+        ]
+      }
+    ]
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Clone All Sister Repos",
+        "type": "shell",
+        "command": "bash scripts/clone-all.sh ../",
+        "options": {
+          "cwd": "${workspaceFolder:🤖 hub (ai-transformer-research-hub)}"
+        },
+        "group": "build",
+        "presentation": { "reveal": "always", "panel": "new" }
+      },
+      {
+        "label": "Sync Repo Artefacts",
+        "type": "shell",
+        "command": "bash scripts/sync_repos.sh",
+        "options": {
+          "cwd": "${workspaceFolder:🤖 hub (ai-transformer-research-hub)}"
+        },
+        "group": "build",
+        "presentation": { "reveal": "always", "panel": "new" }
+      },
+      {
+        "label": "Run E2E Pipeline",
+        "type": "shell",
+        "command": "bash scripts/run-e2e-pipeline.sh",
+        "options": {
+          "cwd": "${workspaceFolder:🤖 hub (ai-transformer-research-hub)}"
+        },
+        "group": "test",
+        "presentation": { "reveal": "always", "panel": "new" }
+      },
+      {
+        "label": "Lint Hub (markdownlint)",
+        "type": "shell",
+        "command": "markdownlint '**/*.md' --ignore node_modules",
+        "options": {
+          "cwd": "${workspaceFolder:🤖 hub (ai-transformer-research-hub)}"
+        },
+        "group": "test",
+        "presentation": { "reveal": "always", "panel": "shared" }
+      }
+    ]
+  }
+}

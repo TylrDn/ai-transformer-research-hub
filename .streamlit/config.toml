@@ -1,0 +1,30 @@
+# Streamlit configuration for the Transformer Research Hub demo app
+# Docs: https://docs.streamlit.io/develop/api-reference/configuration
+
+[global]
+# Show deprecation warnings in the browser. Set false in production.
+showWarningOnDirectExecution = false
+
+[browser]
+gatherUsageStats = false
+
+[server]
+# Port used by the Streamlit server (also set via PORT env var on Streamlit Cloud)
+port = 8501
+headless = true
+# Allow all origins — required for Streamlit Cloud / HuggingFace Spaces embeds
+enableCORS = false
+enableXsrfProtection = true
+
+[theme]
+# Dark theme matching the GitHub dark-mode aesthetic of the hub README
+base = "dark"
+primaryColor = "#58a6ff"
+backgroundColor = "#0d1117"
+secondaryBackgroundColor = "#161b22"
+textColor = "#e6edf3"
+font = "sans serif"
+
+[logger]
+# "error" | "warning" | "info" | "debug"
+level = "info"

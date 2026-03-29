@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Pytest / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Streamlit secrets (keep .example; never commit real secrets)
+.streamlit/secrets.toml
+
+# Sync directory (populated locally by scripts/sync_repos.sh)
+sync/
+
+# Generated Streamlit app (created by notebook 04)
+streamlit_app.py
+
+# Node modules (markdownlint-cli)
+node_modules/
+
+# Docker build artefacts
+.docker/
+
+# macOS
+.DS_Store
+
+# VS Code workspace state (settings are tracked; state is local)
+.vscode/*.log

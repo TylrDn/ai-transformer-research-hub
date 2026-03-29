@@ -34,19 +34,25 @@ graph LR
 | B-03 | Streamlit attention heatmap app + HF integration | ai-attention-token-viz | 3 |
 | B-04 | DeepSpeed ZeRO-3 train on wiki data | ai-dist-training-scaler | 3 |
 | B-05 | Chaos/fault-injection tests for scaler | ai-fault-tolerance-design | 3 |
-| B-06 | Multi-root VS Code workspace script | ai-transformer-research-hub | 4 |
+| B-06 | Multi-root VS Code workspace | ai-transformer-research-hub | 4 |
 | B-07 | End-to-end pipeline: wiki → train → viz → optimize → scale | all | 4 |
 | B-08 | YouTube demo template notebooks | ai-transformer-research-hub | 4 |
+| B-09 | LLaMA-3 / GPT-4 / RWKV benchmark comparison table | ai-transformer-efficiency-comparison | 5 |
+| B-10 | PapersWithCode leaderboard integration | ai-transformer-research-hub | 5 |
+| B-11 | Streamlit Cloud / HuggingFace Spaces deployment | ai-attention-token-viz | 5 |
+| B-12 | Kubernetes manifests for multi-GPU training jobs | ai-dist-training-scaler | 5 |
+| B-13 | SOTA alignment report (vs LLaMA-3-8B, Mistral-7B) | ai-transformer-efficiency-comparison | 5 |
 
 ---
 
-### 🔄 In Progress
+### In Progress
 
 | ID | Task | Repo | Owner | Started |
 |----|------|------|-------|---------|
 | P-01 | Hub enhancements (badges, diagrams, roadmap) | ai-transformer-research-hub | @TylrDn | 2026-03-29 |
 | P-02 | GitHub Pages deploy workflow | ai-transformer-research-hub | @TylrDn | 2026-03-29 |
 | P-03 | Weekly stats cron job | ai-transformer-research-hub | @TylrDn | 2026-03-29 |
+| P-04 | Notebook stubs + script framework (Phase 3/4) | ai-transformer-research-hub | @TylrDn | 2026-03-29 |
 
 ---
 
@@ -99,9 +105,25 @@ For each repo:
 
 ### Phase 4 — Integration (Planned)
 
-- Multi-root VS Code workspace configuration script
-- End-to-end pipeline demonstration: wiki → train → viz → optimize → scale
-- YouTube demo template notebooks published in the hub
+- Multi-root VS Code workspace configuration (`transformer-research-hub.code-workspace`)
+- End-to-end pipeline demonstration: wiki → train → viz → optimize → scale (`scripts/run-e2e-pipeline.sh`)
+- Cross-repo artefact sync (`scripts/sync_repos.sh`)
+- YouTube demo template notebooks published in the hub (`templates/youtube-demo-outline.md`)
+- Streamlit demo configs (`.streamlit/config.toml`)
+- Docker + Compose deployment (`Dockerfile`, `docker-compose.yml`)
+
+### Phase 5 — AI Industry Benchmarking (Planned)
+
+Align the ecosystem with state-of-the-art models and public leaderboards.
+
+| Task | Repo | Description |
+|------|------|-------------|
+| SOTA comparison table | ai-transformer-efficiency-comparison | Compare trained models vs LLaMA-3-8B, Mistral-7B, GPT-2-XL |
+| PapersWithCode integration | ai-transformer-research-hub | Automated leaderboard fetch + README badge |
+| HuggingFace Spaces deployment | ai-attention-token-viz | Live attention viz demo hosted on HF Spaces |
+| Kubernetes manifests | ai-dist-training-scaler | Helm chart for multi-GPU training jobs on K8s |
+| RWKV vs Transformer at scale | ai-transformer-efficiency-comparison | Chinchilla-optimal comparison at 1B+ params |
+| Long-context benchmark | ai-attention-throughput-optimizer | LongBench evaluation at 32k–128k context |
 
 ---
 
@@ -113,3 +135,4 @@ For each repo:
 | Phase 2 complete | 2026-05-15 | ⏳ Planned |
 | Phase 3 complete | 2026-06-30 | ⏳ Planned |
 | Phase 4 complete | 2026-07-31 | ⏳ Planned |
+| Phase 5 complete | 2026-09-30 | ⏳ Planned |
