@@ -1,0 +1,16 @@
+{
+  "ignorePatterns": [
+    {
+      "pattern": "^https://komarev.com"
+    },
+    {
+      "pattern": "^https://github-readme-stats.vercel.app"
+    },
+    {
+      "pattern": "^https://img.shields.io"
+    }
+  ],
+  "retryOn429": true,
+  "retryCount": 3,
+  "fallbackRetryDelay": "30s"
+}

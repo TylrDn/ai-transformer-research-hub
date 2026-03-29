@@ -1,0 +1,5 @@
+# Minimal requirements for the hub repository
+# Individual projects have their own requirements.txt
+
+# Markdown linting (optional, for CI)
+# mdformat>=0.7
