@@ -179,7 +179,8 @@ class TestNotebookImplementations:
 
     def test_notebook_06_has_reliability_curve(self) -> None:
         content = read("notebooks/06_chaos_fault_injection.ipynb")
-        assert "reliability" in content.lower() or "fleet_size" in content
+        assert "fleet_size" in content, "Missing fleet_size sweep for reliability curve"
+        assert "survival" in content.lower(), "Missing survival probability tracking"
 
 
 # ---------------------------------------------------------------------------
