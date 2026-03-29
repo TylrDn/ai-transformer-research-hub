@@ -19,14 +19,14 @@
 
 Six interconnected projects covering the full lifecycle of Transformer research — from data ingestion through training, optimization, visualization, and fault tolerance.
 
-| Project | Description | Language | Status | Links |
-|---------|-------------|----------|--------|-------|
-| [**ai-attention-throughput-optimizer**](https://github.com/TylrDn/ai-attention-throughput-optimizer) | Profile, benchmark, and optimize throughput of new attention mechanisms | ![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white&style=flat-square) | [![Stars](https://img.shields.io/github/stars/TylrDn/ai-attention-throughput-optimizer?style=flat-square)](https://github.com/TylrDn/ai-attention-throughput-optimizer/stargazers) [![Last commit](https://img.shields.io/github/last-commit/TylrDn/ai-attention-throughput-optimizer?style=flat-square)](https://github.com/TylrDn/ai-attention-throughput-optimizer/commits) | [⭐ Star](https://github.com/TylrDn/ai-attention-throughput-optimizer) · [🍴 Fork](https://github.com/TylrDn/ai-attention-throughput-optimizer/fork) |
-| [**ai-transformer-efficiency-comparison**](https://github.com/TylrDn/ai-transformer-efficiency-comparison) | Compare compute efficiency of Transformer variants (FLOPs, latency, memory) | ![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white&style=flat-square) | [![Stars](https://img.shields.io/github/stars/TylrDn/ai-transformer-efficiency-comparison?style=flat-square)](https://github.com/TylrDn/ai-transformer-efficiency-comparison/stargazers) [![Last commit](https://img.shields.io/github/last-commit/TylrDn/ai-transformer-efficiency-comparison?style=flat-square)](https://github.com/TylrDn/ai-transformer-efficiency-comparison/commits) | [⭐ Star](https://github.com/TylrDn/ai-transformer-efficiency-comparison) · [🍴 Fork](https://github.com/TylrDn/ai-transformer-efficiency-comparison/fork) |
-| [**ai-wiki-dataset-preprocessor**](https://github.com/TylrDn/ai-wiki-dataset-preprocessor) | Pipeline to process Wikipedia dumps into model-ready JSONL/text format | ![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white&style=flat-square) | [![Stars](https://img.shields.io/github/stars/TylrDn/ai-wiki-dataset-preprocessor?style=flat-square)](https://github.com/TylrDn/ai-wiki-dataset-preprocessor/stargazers) [![Last commit](https://img.shields.io/github/last-commit/TylrDn/ai-wiki-dataset-preprocessor?style=flat-square)](https://github.com/TylrDn/ai-wiki-dataset-preprocessor/commits) | [⭐ Star](https://github.com/TylrDn/ai-wiki-dataset-preprocessor) · [🍴 Fork](https://github.com/TylrDn/ai-wiki-dataset-preprocessor/fork) |
-| [**ai-dist-training-scaler**](https://github.com/TylrDn/ai-dist-training-scaler) | Scale Transformer training jobs to thousands of GPUs with Accelerate/DeepSpeed | ![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white&style=flat-square) | [![Stars](https://img.shields.io/github/stars/TylrDn/ai-dist-training-scaler?style=flat-square)](https://github.com/TylrDn/ai-dist-training-scaler/stargazers) [![Last commit](https://img.shields.io/github/last-commit/TylrDn/ai-dist-training-scaler?style=flat-square)](https://github.com/TylrDn/ai-dist-training-scaler/commits) | [⭐ Star](https://github.com/TylrDn/ai-dist-training-scaler) · [🍴 Fork](https://github.com/TylrDn/ai-dist-training-scaler/fork) |
-| [**ai-fault-tolerance-design**](https://github.com/TylrDn/ai-fault-tolerance-design) | Design document and simulator for fault tolerance in distributed training systems | ![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white&style=flat-square) | [![Stars](https://img.shields.io/github/stars/TylrDn/ai-fault-tolerance-design?style=flat-square)](https://github.com/TylrDn/ai-fault-tolerance-design/stargazers) [![Last commit](https://img.shields.io/github/last-commit/TylrDn/ai-fault-tolerance-design?style=flat-square)](https://github.com/TylrDn/ai-fault-tolerance-design/commits) | [⭐ Star](https://github.com/TylrDn/ai-fault-tolerance-design) · [🍴 Fork](https://github.com/TylrDn/ai-fault-tolerance-design/fork) |
-| [**ai-attention-token-viz**](https://github.com/TylrDn/ai-attention-token-viz) | Interactive visualization tool for token-to-token attention in language models | ![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white&style=flat-square) | [![Stars](https://img.shields.io/github/stars/TylrDn/ai-attention-token-viz?style=flat-square)](https://github.com/TylrDn/ai-attention-token-viz/stargazers) [![Last commit](https://img.shields.io/github/last-commit/TylrDn/ai-attention-token-viz?style=flat-square)](https://github.com/TylrDn/ai-attention-token-viz/commits) | [⭐ Star](https://github.com/TylrDn/ai-attention-token-viz) · [🍴 Fork](https://github.com/TylrDn/ai-attention-token-viz/fork) |
+| Project | Description | Language | Stars | Forks | Updated | Links |
+|---------|-------------|----------|-------|-------|---------|-------|
+| [**ai-attention-throughput-optimizer**](https://github.com/TylrDn/ai-attention-throughput-optimizer) | Profile, benchmark, and optimize throughput of new attention mechanisms | ![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white&style=flat-square) | [![Stars](https://img.shields.io/github/stars/TylrDn/ai-attention-throughput-optimizer?style=flat-square)](https://github.com/TylrDn/ai-attention-throughput-optimizer/stargazers) | [![Forks](https://img.shields.io/github/forks/TylrDn/ai-attention-throughput-optimizer?style=flat-square)](https://github.com/TylrDn/ai-attention-throughput-optimizer/network/members) | [![Updated](https://img.shields.io/github/last-commit/TylrDn/ai-attention-throughput-optimizer?style=flat-square&label=)](https://github.com/TylrDn/ai-attention-throughput-optimizer/commits) | [⭐ Star](https://github.com/TylrDn/ai-attention-throughput-optimizer) · [🍴 Fork](https://github.com/TylrDn/ai-attention-throughput-optimizer/fork) |
+| [**ai-transformer-efficiency-comparison**](https://github.com/TylrDn/ai-transformer-efficiency-comparison) | Compare compute efficiency of Transformer variants (FLOPs, latency, memory) | ![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white&style=flat-square) | [![Stars](https://img.shields.io/github/stars/TylrDn/ai-transformer-efficiency-comparison?style=flat-square)](https://github.com/TylrDn/ai-transformer-efficiency-comparison/stargazers) | [![Forks](https://img.shields.io/github/forks/TylrDn/ai-transformer-efficiency-comparison?style=flat-square)](https://github.com/TylrDn/ai-transformer-efficiency-comparison/network/members) | [![Updated](https://img.shields.io/github/last-commit/TylrDn/ai-transformer-efficiency-comparison?style=flat-square&label=)](https://github.com/TylrDn/ai-transformer-efficiency-comparison/commits) | [⭐ Star](https://github.com/TylrDn/ai-transformer-efficiency-comparison) · [🍴 Fork](https://github.com/TylrDn/ai-transformer-efficiency-comparison/fork) |
+| [**ai-wiki-dataset-preprocessor**](https://github.com/TylrDn/ai-wiki-dataset-preprocessor) | Pipeline to process Wikipedia dumps into model-ready JSONL/text format | ![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white&style=flat-square) | [![Stars](https://img.shields.io/github/stars/TylrDn/ai-wiki-dataset-preprocessor?style=flat-square)](https://github.com/TylrDn/ai-wiki-dataset-preprocessor/stargazers) | [![Forks](https://img.shields.io/github/forks/TylrDn/ai-wiki-dataset-preprocessor?style=flat-square)](https://github.com/TylrDn/ai-wiki-dataset-preprocessor/network/members) | [![Updated](https://img.shields.io/github/last-commit/TylrDn/ai-wiki-dataset-preprocessor?style=flat-square&label=)](https://github.com/TylrDn/ai-wiki-dataset-preprocessor/commits) | [⭐ Star](https://github.com/TylrDn/ai-wiki-dataset-preprocessor) · [🍴 Fork](https://github.com/TylrDn/ai-wiki-dataset-preprocessor/fork) |
+| [**ai-dist-training-scaler**](https://github.com/TylrDn/ai-dist-training-scaler) | Scale Transformer training jobs to thousands of GPUs with Accelerate/DeepSpeed | ![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white&style=flat-square) | [![Stars](https://img.shields.io/github/stars/TylrDn/ai-dist-training-scaler?style=flat-square)](https://github.com/TylrDn/ai-dist-training-scaler/stargazers) | [![Forks](https://img.shields.io/github/forks/TylrDn/ai-dist-training-scaler?style=flat-square)](https://github.com/TylrDn/ai-dist-training-scaler/network/members) | [![Updated](https://img.shields.io/github/last-commit/TylrDn/ai-dist-training-scaler?style=flat-square&label=)](https://github.com/TylrDn/ai-dist-training-scaler/commits) | [⭐ Star](https://github.com/TylrDn/ai-dist-training-scaler) · [🍴 Fork](https://github.com/TylrDn/ai-dist-training-scaler/fork) |
+| [**ai-fault-tolerance-design**](https://github.com/TylrDn/ai-fault-tolerance-design) | Design document and simulator for fault tolerance in distributed training systems | ![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white&style=flat-square) | [![Stars](https://img.shields.io/github/stars/TylrDn/ai-fault-tolerance-design?style=flat-square)](https://github.com/TylrDn/ai-fault-tolerance-design/stargazers) | [![Forks](https://img.shields.io/github/forks/TylrDn/ai-fault-tolerance-design?style=flat-square)](https://github.com/TylrDn/ai-fault-tolerance-design/network/members) | [![Updated](https://img.shields.io/github/last-commit/TylrDn/ai-fault-tolerance-design?style=flat-square&label=)](https://github.com/TylrDn/ai-fault-tolerance-design/commits) | [⭐ Star](https://github.com/TylrDn/ai-fault-tolerance-design) · [🍴 Fork](https://github.com/TylrDn/ai-fault-tolerance-design/fork) |
+| [**ai-attention-token-viz**](https://github.com/TylrDn/ai-attention-token-viz) | Interactive visualization tool for token-to-token attention in language models | ![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white&style=flat-square) | [![Stars](https://img.shields.io/github/stars/TylrDn/ai-attention-token-viz?style=flat-square)](https://github.com/TylrDn/ai-attention-token-viz/stargazers) | [![Forks](https://img.shields.io/github/forks/TylrDn/ai-attention-token-viz?style=flat-square)](https://github.com/TylrDn/ai-attention-token-viz/network/members) | [![Updated](https://img.shields.io/github/last-commit/TylrDn/ai-attention-token-viz?style=flat-square&label=)](https://github.com/TylrDn/ai-attention-token-viz/commits) | [⭐ Star](https://github.com/TylrDn/ai-attention-token-viz) · [🍴 Fork](https://github.com/TylrDn/ai-attention-token-viz/fork) |
 
 ---
 
@@ -56,6 +56,44 @@ Six interconnected projects covering the full lifecycle of Transformer research 
 ```
 
 See [docs/architecture.md](docs/architecture.md) for the full Mermaid diagram.
+
+### Research Pipeline
+
+```mermaid
+graph LR
+    DATA["📦 wiki-dataset-preprocessor\nWikipedia → JSONL"]
+    MODELS["⚡ dist-training-scaler\nMulti-GPU Training"]
+    VIZ["📊 attention-token-viz\nStreamlit Heatmaps"]
+    OPT["🔬 attention-throughput-optimizer\nFlashAttn Benchmarks"]
+    SCALE["🚀 dist-training-scaler + fault-tolerance\nZeRO-3 + Chaos Tests"]
+    DOCS["📄 transformer-efficiency-comparison\nPareto Plots + Reports"]
+
+    DATA -->|"JSONL shards"| MODELS
+    MODELS -->|"checkpoints"| VIZ
+    MODELS -->|"checkpoints"| OPT
+    VIZ -->|"attention maps"| OPT
+    OPT -->|"optimized attn"| SCALE
+    SCALE -->|"benchmark results"| DOCS
+```
+
+See [docs/roadmap.md](docs/roadmap.md) for the full Kanban board.
+
+---
+
+## ⬇️ Clone All Repos
+
+Clone the entire ecosystem in one command:
+
+```bash
+bash <(curl -fsSL https://raw.githubusercontent.com/TylrDn/ai-transformer-research-hub/main/scripts/clone-all.sh)
+```
+
+Or clone the hub first, then run the script locally:
+
+```bash
+git clone https://github.com/TylrDn/ai-transformer-research-hub
+bash ai-transformer-research-hub/scripts/clone-all.sh ./research
+```
 
 ---
 
@@ -90,7 +128,20 @@ python main.py
 
 ## 🗺️ Roadmap
 
-### ✅ Phase 1 — Foundation (Complete)
+See [docs/roadmap.md](docs/roadmap.md) for the full Kanban board with all phases and milestones.
+
+### ✅ Phase 1A — Hub Enhancements (Complete)
+
+- [x] Dynamic shields.io badges (stars, forks, last-updated) for all 6 repos
+- [x] "Clone All" bash script (`scripts/clone-all.sh`)
+- [x] Mermaid pipeline diagram: wiki data → models → viz → optimize → scale → docs
+- [x] Weekly cron job to refresh badges/stats (`.github/workflows/weekly-stats.yml`)
+- [x] GitHub Pages deploy from README (`.github/workflows/pages.yml`)
+- [x] Kanban roadmap document (`docs/roadmap.md`)
+- [x] Copilot instructions (`.github/copilot-instructions.md`)
+
+### ✅ Phase 1B — Foundation (Complete)
+
 - [x] Core dataset preprocessing pipeline (`ai-wiki-dataset-preprocessor`)
 - [x] Attention mechanism benchmarking framework (`ai-attention-throughput-optimizer`)
 - [x] Transformer efficiency comparison suite (`ai-transformer-efficiency-comparison`)
@@ -98,18 +149,26 @@ python main.py
 - [x] Fault tolerance design & simulation (`ai-fault-tolerance-design`)
 - [x] Attention visualization tooling (`ai-attention-token-viz`)
 
-### 🚧 Phase 2 — Integration (In Progress)
-- [ ] Cross-project CI/CD pipeline
-- [ ] Shared benchmarking baseline dataset
-- [ ] Unified metrics dashboard
-- [ ] Docker Compose multi-project environment
+### 🚧 Phase 2 — Repo Hardening (Planned)
 
-### 🔮 Phase 3 — Research Extensions (Planned)
-- [ ] Flash Attention v3 integration and profiling
-- [ ] Multi-modal Transformer support (vision + language)
-- [ ] Sparse attention pattern experiments
-- [ ] Federated training experiments
-- [ ] Integration with HuggingFace Hub for model publishing
+- [ ] `.github/copilot-instructions.md` in each sister repo (PyTorch 2.3+, IBM WatsonX, wandb, arXiv)
+- [ ] pytest suites + CI workflows per repo
+- [ ] Cross-link datasets/models (wiki JSONL → trainers)
+
+### 🔮 Phase 3 — Notebook Pipelines (Planned)
+
+- [ ] Wiki: full dump → JSONL pipeline, HuggingFace Dataset export
+- [ ] Attn: FlashAttention-3 benchmark 1k–64k seq
+- [ ] Compare: GPT-2 vs RWKV on wiki data, Pareto plots
+- [ ] Viz: Streamlit attention heatmap app, HF integration
+- [ ] Scale: DeepSpeed ZeRO-3 train on wiki, fault injection
+- [ ] Fault: chaos tests for scaler
+
+### 🔮 Phase 4 — Integration (Planned)
+
+- [ ] Multi-root VS Code workspace script
+- [ ] End-to-end pipeline: wiki → train → viz → optimize → scale
+- [ ] YouTube demo templates in hub
 
 ---
 
