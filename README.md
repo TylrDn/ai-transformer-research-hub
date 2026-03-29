@@ -97,6 +97,46 @@ bash ai-transformer-research-hub/scripts/clone-all.sh ./research
 
 ---
 
+## 🖥️ Developer Setup
+
+### Multi-root VS Code Workspace
+
+Open all 7 repos simultaneously in VS Code:
+
+```bash
+# Clone the hub and all sister repos side by side
+bash scripts/clone-all.sh ..
+
+# Open the multi-root workspace
+code transformer-research-hub.code-workspace
+```
+
+The workspace file (`transformer-research-hub.code-workspace`) configures:
+
+- All 7 repo folders with emoji labels
+- Shared Python interpreter and analysis paths
+- Recommended extensions (Copilot, Jupyter, ruff, GitLens)
+- Launch configs for each project's main entry point
+- Tasks for "Clone All" and "Run E2E Pipeline"
+
+### End-to-End Pipeline
+
+Run the complete research pipeline with a single script:
+
+```bash
+bash scripts/run-e2e-pipeline.sh
+```
+
+This orchestrates: **wiki preprocess → ZeRO-3 training → attention viz → benchmark → compare**
+
+Use flags to skip expensive steps during development:
+
+```bash
+bash scripts/run-e2e-pipeline.sh --skip-preprocess --skip-train
+```
+
+---
+
 ## 🚀 Quick Start
 
 Each project is self-contained. To get started with any of them:
@@ -149,26 +189,30 @@ See [docs/roadmap.md](docs/roadmap.md) for the full Kanban board with all phases
 - [x] Fault tolerance design & simulation (`ai-fault-tolerance-design`)
 - [x] Attention visualization tooling (`ai-attention-token-viz`)
 
-### 🚧 Phase 2 — Repo Hardening (Planned)
+### ✅ Phase 2 — Hub Hardening (Complete)
 
-- [ ] `.github/copilot-instructions.md` in each sister repo (PyTorch 2.3+, IBM WatsonX, wandb, arXiv)
-- [ ] pytest suites + CI workflows per repo
-- [ ] Cross-link datasets/models (wiki JSONL → trainers)
+- [x] `templates/copilot-instructions.md` — template for all sister repos (PyTorch 2.3+, IBM WatsonX, wandb, arXiv)
+- [x] `templates/repo-ci.yml` — GitHub Actions CI template (ruff + black + pytest --cov)
+- [x] `configs/deepspeed_zero3.json` — shared DeepSpeed ZeRO-3 configuration
+- [x] `REFERENCES.md` — centralised arXiv citation registry
+- [x] `tests/test_hub.py` — hub-level pytest suite
+- [ ] Copy templates into each sister repo (pending per-repo PRs)
 
-### 🔮 Phase 3 — Notebook Pipelines (Planned)
+### ✅ Phase 3 — Notebook Pipelines (Stubs Complete)
 
-- [ ] Wiki: full dump → JSONL pipeline, HuggingFace Dataset export
-- [ ] Attn: FlashAttention-3 benchmark 1k–64k seq
-- [ ] Compare: GPT-2 vs RWKV on wiki data, Pareto plots
-- [ ] Viz: Streamlit attention heatmap app, HF integration
-- [ ] Scale: DeepSpeed ZeRO-3 train on wiki, fault injection
-- [ ] Fault: chaos tests for scaler
+- [x] `notebooks/01_wiki_preprocessing.ipynb` — Wikipedia dump → JSONL + HF Dataset export
+- [x] `notebooks/02_flashattn3_benchmark.ipynb` — FlashAttention benchmark 1k–64k seq
+- [x] `notebooks/03_gpt2_rwkv_pareto.ipynb` — GPT-2 vs RWKV on wiki data, Pareto plots
+- [x] `notebooks/04_attention_viz_streamlit.ipynb` — Streamlit attention heatmap app
+- [x] `notebooks/05_deepspeed_zero3_training.ipynb` — DeepSpeed ZeRO-3 train on wiki + fault injection
+- [x] `notebooks/06_chaos_fault_injection.ipynb` — Chaos tests for distributed scaler
+- [ ] Production runs on real GPU clusters (pending per-repo implementation)
 
-### 🔮 Phase 4 — Integration (Planned)
+### ✅ Phase 4 — Integration (Complete)
 
-- [ ] Multi-root VS Code workspace script
-- [ ] End-to-end pipeline: wiki → train → viz → optimize → scale
-- [ ] YouTube demo templates in hub
+- [x] `transformer-research-hub.code-workspace` — multi-root VS Code workspace for all 7 repos
+- [x] `scripts/run-e2e-pipeline.sh` — end-to-end pipeline: wiki → train → viz → optimize → scale
+- [x] `templates/youtube-demo-outline.md` — YouTube demo production template (7 episodes)
 
 ---
 
