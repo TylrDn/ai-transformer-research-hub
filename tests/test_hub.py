@@ -111,6 +111,77 @@ class TestNotebooks:
         assert "DistributedTrainingSimulator" in content
 
 
+class TestNotebookImplementations:
+    """Validate that Phase-3 TODO stubs have been replaced with real implementations."""
+
+    def test_no_todo_stubs_remaining(self) -> None:
+        for nb in EXPECTED_NOTEBOOKS:
+            content = (ROOT / nb).read_text(encoding="utf-8")
+            assert "# TODO (Phase 3)" not in content, f"Unimplemented stub in {nb}"
+
+    def test_notebook_01_has_extract_function(self) -> None:
+        content = read("notebooks/01_wiki_preprocessing.ipynb")
+        assert "extract_articles" in content
+
+    def test_notebook_01_has_dedup_function(self) -> None:
+        content = read("notebooks/01_wiki_preprocessing.ipynb")
+        assert "minhash_dedup" in content
+
+    def test_notebook_01_has_shard_writer(self) -> None:
+        content = read("notebooks/01_wiki_preprocessing.ipynb")
+        assert "write_jsonl_shards" in content
+
+    def test_notebook_02_has_benchmark_function(self) -> None:
+        content = read("notebooks/02_flashattn3_benchmark.ipynb")
+        assert "benchmark_attention" in content
+
+    def test_notebook_02_has_sdp_backends(self) -> None:
+        content = read("notebooks/02_flashattn3_benchmark.ipynb")
+        assert "scaled_dot_product_attention" in content
+
+    def test_notebook_03_has_perplexity_function(self) -> None:
+        content = read("notebooks/03_gpt2_rwkv_pareto.ipynb")
+        assert "compute_perplexity" in content
+
+    def test_notebook_03_has_pareto_function(self) -> None:
+        content = read("notebooks/03_gpt2_rwkv_pareto.ipynb")
+        assert "is_pareto_optimal" in content
+
+    def test_notebook_04_has_attention_extractor(self) -> None:
+        content = read("notebooks/04_attention_viz_streamlit.ipynb")
+        assert "extract_attention_weights" in content
+
+    def test_notebook_04_generates_streamlit_app(self) -> None:
+        content = read("notebooks/04_attention_viz_streamlit.ipynb")
+        assert "streamlit_app.py" in content
+        assert "streamlit" in content
+
+    def test_notebook_05_has_accelerator_setup(self) -> None:
+        content = read("notebooks/05_deepspeed_zero3_training.ipynb")
+        assert "build_accelerator" in content
+
+    def test_notebook_05_has_training_loop(self) -> None:
+        content = read("notebooks/05_deepspeed_zero3_training.ipynb")
+        assert "train_zero3" in content
+
+    def test_notebook_05_has_checkpoint_recovery(self) -> None:
+        content = read("notebooks/05_deepspeed_zero3_training.ipynb")
+        assert "resume_from_checkpoint" in content
+
+    def test_notebook_06_simulator_has_all_scenarios(self) -> None:
+        content = read("notebooks/06_chaos_fault_injection.ipynb")
+        for scenario in ("node_failure", "gradient_corruption", "slow_node"):
+            assert scenario in content, f"Missing scenario: {scenario}"
+
+    def test_notebook_06_has_monte_carlo(self) -> None:
+        content = read("notebooks/06_chaos_fault_injection.ipynb")
+        assert "monte_carlo_survival" in content
+
+    def test_notebook_06_has_reliability_curve(self) -> None:
+        content = read("notebooks/06_chaos_fault_injection.ipynb")
+        assert "reliability" in content.lower() or "fleet_size" in content
+
+
 # ---------------------------------------------------------------------------
 # Templates
 # ---------------------------------------------------------------------------

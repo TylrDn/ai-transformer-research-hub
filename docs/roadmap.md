@@ -44,7 +44,14 @@ graph LR
 
 ### In Progress
 
-*No tasks currently in progress — Phase 2 Repo Hardening is the next active phase.*
+| ID | Task | Repo | Phase |
+|----|------|------|-------|
+| P-01 | Notebook 01 — Wikipedia dump → JSONL pipeline | ai-transformer-research-hub | 3 |
+| P-02 | Notebook 02 — FlashAttention-2/3 benchmark | ai-transformer-research-hub | 3 |
+| P-03 | Notebook 03 — GPT-2 vs RWKV Pareto analysis | ai-transformer-research-hub | 3 |
+| P-04 | Notebook 04 — Attention viz + Streamlit app | ai-transformer-research-hub | 3 |
+| P-05 | Notebook 05 — DeepSpeed ZeRO-3 training loop | ai-transformer-research-hub | 3 |
+| P-06 | Notebook 06 — Chaos engineering simulator | ai-transformer-research-hub | 3 |
 
 ---
 
@@ -94,16 +101,16 @@ For each repo:
 - pytest suite + CI workflow update
 - Cross-link datasets/models (e.g., wiki JSONL → trainers)
 
-### Phase 3 — Notebook Pipelines (Planned)
+### Phase 3 — Notebook Pipelines 🔄 (In Progress)
 
-| Repo | Deliverable |
-|------|-------------|
-| ai-wiki-dataset-preprocessor | Full dump → JSONL pipeline notebook; HuggingFace Dataset export |
-| ai-attention-throughput-optimizer | FlashAttention-3 benchmark notebook (1k–64k seq lengths) |
-| ai-transformer-efficiency-comparison | GPT-2 vs RWKV on wiki data; Pareto efficiency plots |
-| ai-attention-token-viz | Streamlit attention heatmap app with HuggingFace integration |
-| ai-dist-training-scaler | DeepSpeed ZeRO-3 training on wiki data with fault injection |
-| ai-fault-tolerance-design | Chaos engineering tests for the distributed scaler |
+| Notebook | Repo | Deliverable | Status |
+|----------|------|-------------|--------|
+| 01_wiki_preprocessing.ipynb | ai-wiki-dataset-preprocessor | Full dump → JSONL pipeline; MinHash dedup; HuggingFace export | 🔄 Implemented |
+| 02_flashattn3_benchmark.ipynb | ai-attention-throughput-optimizer | FlashAttention-2/3 benchmark (1k–64k seq lengths); Plotly heatmaps | 🔄 Implemented |
+| 03_gpt2_rwkv_pareto.ipynb | ai-transformer-efficiency-comparison | GPT-2 vs RWKV perplexity × latency Pareto analysis | 🔄 Implemented |
+| 04_attention_viz_streamlit.ipynb | ai-attention-token-viz | BERT attention extractor + Streamlit heatmap app generator | 🔄 Implemented |
+| 05_deepspeed_zero3_training.ipynb | ai-dist-training-scaler | ZeRO-3 training loop with fault injection + checkpoint recovery | 🔄 Implemented |
+| 06_chaos_fault_injection.ipynb | ai-fault-tolerance-design | DistributedTrainingSimulator + Monte Carlo reliability curve | 🔄 Implemented |
 
 ### Phase 4 — Integration ✅ (Framework Complete)
 
