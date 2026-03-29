@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🤖 Tyler Dunlap — Transformer Research Hub
+# 🤖 Taylor Dean — Transformer Research Hub
 
 **IBM Systems Engineer · ML Researcher · Distributed Training & Transformer Architecture**
 

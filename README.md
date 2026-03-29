@@ -9,7 +9,7 @@
 [![GitHub followers](https://img.shields.io/github/followers/TylrDn?style=social)](https://github.com/TylrDn)
 [![Profile views](https://komarev.com/ghpvc/?username=TylrDn&color=blue&style=flat-square)](https://github.com/TylrDn)
 
-> Tyler Dunlap — IBM Systems Engineer | ML Researcher | Distributed Training & Transformer Architecture
+> Taylor Dean — IBM Systems Engineer | ML Researcher | Distributed Training & Transformer Architecture
 
 </div>
 
@@ -166,7 +166,7 @@ chore: maintenance
 | Platform | Link |
 |----------|------|
 | 🐙 GitHub | [@TylrDn](https://github.com/TylrDn) |
-| 💼 LinkedIn | [Tyler Dunlap](https://www.linkedin.com/in/tylerdunlap/) |
+| 💼 LinkedIn | [Taylor Dean](https://www.linkedin.com/in/t-dean/) |
 | 🏢 IBM | IBM Systems Engineer |
 
 </div>
