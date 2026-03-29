@@ -102,7 +102,7 @@ See [REFERENCES.md](REFERENCES.md) for the centralised arXiv citation registry.
 python preprocess.py --input dump.xml.bz2 --output data/
 ```
 
-**TODO (Phase 3):** Full pipeline notebook — `notebooks/01_wiki_preprocessing.ipynb`
+✅ **Notebook:** [`notebooks/01_wiki_preprocessing.ipynb`](notebooks/01_wiki_preprocessing.ipynb) — full dump → JSONL pipeline, MinHash dedup, HuggingFace export
 
 </details>
 
@@ -125,7 +125,7 @@ python preprocess.py --input dump.xml.bz2 --output data/
 accelerate launch train.py --config config.yaml
 ```
 
-**TODO (Phase 3):** ZeRO-3 training notebook — `notebooks/05_deepspeed_zero3_training.ipynb`
+✅ **Notebook:** [`notebooks/05_deepspeed_zero3_training.ipynb`](notebooks/05_deepspeed_zero3_training.ipynb) — ZeRO-3 training loop, fault injection, checkpoint recovery
 
 </details>
 
@@ -141,7 +141,7 @@ accelerate launch train.py --config config.yaml
 
 **Integrates with:** `ai-dist-training-scaler` as a resilience wrapper
 
-**TODO (Phase 3):** Chaos engineering notebook — `notebooks/06_chaos_fault_injection.ipynb`
+✅ **Notebook:** [`notebooks/06_chaos_fault_injection.ipynb`](notebooks/06_chaos_fault_injection.ipynb) — DistributedTrainingSimulator, Monte Carlo reliability curve
 
 </details>
 
@@ -163,7 +163,7 @@ accelerate launch train.py --config config.yaml
 python benchmark.py --model flash-attention
 ```
 
-**TODO (Phase 3):** FlashAttention-3 benchmark notebook — `notebooks/02_flashattn3_benchmark.ipynb`
+✅ **Notebook:** [`notebooks/02_flashattn3_benchmark.ipynb`](notebooks/02_flashattn3_benchmark.ipynb) — FlashAttention-2/3 benchmark, 1k–64k seq lengths, Plotly heatmaps
 
 </details>
 
@@ -185,7 +185,7 @@ python benchmark.py --model flash-attention
 python compare.py --variants vanilla,linear,flash
 ```
 
-**TODO (Phase 3):** Pareto analysis notebook — `notebooks/03_gpt2_rwkv_pareto.ipynb`
+✅ **Notebook:** [`notebooks/03_gpt2_rwkv_pareto.ipynb`](notebooks/03_gpt2_rwkv_pareto.ipynb) — GPT-2 vs RWKV perplexity × latency Pareto analysis
 **TODO (Phase 5):** SOTA comparison vs LLaMA-3-8B, Mistral-7B
 
 </details>
@@ -207,7 +207,7 @@ python compare.py --variants vanilla,linear,flash
 python viz.py --model bert-base-uncased --text "Hello world"
 ```
 
-**TODO (Phase 3):** Attention viz notebook + app — `notebooks/04_attention_viz_streamlit.ipynb`
+✅ **Notebook:** [`notebooks/04_attention_viz_streamlit.ipynb`](notebooks/04_attention_viz_streamlit.ipynb) — BERT attention extractor + Streamlit heatmap app generator
 **TODO (Phase 5):** Deploy to HuggingFace Spaces
 
 </details>
