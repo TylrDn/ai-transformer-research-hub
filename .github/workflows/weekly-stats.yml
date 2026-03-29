@@ -1,0 +1,68 @@
+name: Weekly Stats Refresh
+
+on:
+  schedule:
+    # Run every Monday at 03:00 UTC
+    - cron: "0 3 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh-stats:
+    name: Refresh badges and repository stats
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Fetch latest stats via GitHub API
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          REPOS=(
+            "ai-attention-throughput-optimizer"
+            "ai-transformer-efficiency-comparison"
+            "ai-wiki-dataset-preprocessor"
+            "ai-dist-training-scaler"
+            "ai-fault-tolerance-design"
+            "ai-attention-token-viz"
+          )
+
+          echo "### Weekly Repository Stats — $(date -u '+%Y-%m-%d')" > /tmp/stats_summary.txt
+          echo "" >> /tmp/stats_summary.txt
+
+          for repo in "${REPOS[@]}"; do
+            DATA=$(gh api "repos/TylrDn/${repo}" \
+              --jq '"\(.name): ⭐ \(.stargazers_count) stars · 🍴 \(.forks_count) forks · last push: \(.pushed_at | split("T")[0])"' \
+              2>/dev/null || echo "${repo}: (private or unavailable)")
+            echo "  ${DATA}" >> /tmp/stats_summary.txt
+          done
+
+          cat /tmp/stats_summary.txt
+
+      - name: Update stats timestamp in README
+        run: |
+          TIMESTAMP=$(date -u '+%Y-%m-%d %H:%M UTC')
+          # Replace the existing badge-refresh timestamp comment if present, or append it
+          if grep -q "<!-- stats-refreshed:" README.md; then
+            sed -i "s|<!-- stats-refreshed:.*-->|<!-- stats-refreshed: ${TIMESTAMP} -->|" README.md
+          else
+            echo "" >> README.md
+            echo "<!-- stats-refreshed: ${TIMESTAMP} -->" >> README.md
+          fi
+
+      - name: Commit updated timestamp
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet; then
+            echo "No changes to commit."
+          else
+            git add README.md
+            git commit -m "chore: weekly stats refresh $(date -u '+%Y-%m-%d')"
+            git push
+          fi
